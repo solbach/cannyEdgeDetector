@@ -13,8 +13,7 @@ using namespace cv;
 Mat src, src_gray;
 Mat dst, detected_edges, color_dst;
 
-int edgeThresh = 1;
-int lowThreshold;
+int lowThreshold = 35;
 int const max_lowThreshold = 100;
 int ratio = 3;
 int kernel_size = 3;
@@ -38,10 +37,10 @@ void detectorCallback(int, void*)
     src.copyTo( dst, detected_edges);
 
     /// Hough
-    cvtColor( dst, color_dst, CV_GRAY2BGR );
+    cvtColor( detected_edges, color_dst, CV_GRAY2BGR );
 
     std::vector<Vec4i> lines;
-    HoughLinesP( dst, lines, 1, CV_PI/180, 80, 30, 10 );
+    HoughLinesP( detected_edges, lines, 1, CV_PI/180, 80, 30, 10 );
     for( size_t i = 0; i < lines.size(); i++ )
     {
         line( color_dst, Point(lines[i][0], lines[i][1]),
@@ -55,7 +54,7 @@ void detectorCallback(int, void*)
 /** @function main */
 int main( int argc, char** argv )
 {
-    std::cout << "Have " << argc << " arguments:" << std::endl;
+    std::cout << argc << " arguments provided" << std::endl;
     std::cout << "Canny Edge Detector\n" << std::endl;
     /// Check input
     if(argc < 2){
