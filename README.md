@@ -5,10 +5,10 @@
 </head>
 
 # EdgeDetector
-Simple Canny Edge Detector Repo based on OpenCV 2.4.13.2 documentation
+Simple Canny Edge Detector Repo based on OpenCV 2.4.13.2 documentation + probabilistic Hough Transform
 
 ## usage
-    $ ./cannyDetector ../example/pic1.jpg
+    $ bin/detector ../example/pic1.jpg
 
 ## requires
 * cmake > 2.8
