@@ -4,7 +4,7 @@
     </script>
 </head>
 
-# EdgeDetector
+# Edge Detector
 Simple Canny Edge Detector Repo based on OpenCV 2.4.13.2 documentation + probabilistic Hough Transform
 
 ## usage
